@@ -1,6 +1,6 @@
 function getCount8() {
   let count = 0;
-  for (let num = 1; num <= 10000; num++) {
+  for (let num = 1; num < 10001; num++) {
     const str = num.toString();
     for (let c = 0; c < str.length; c++) {
       if (str[c] === '8') {
