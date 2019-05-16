@@ -1,6 +1,6 @@
 function alphaString46(s) {
   // eslint-disable-next-line no-restricted-globals
-  const result = !isNaN(s * 1) && (s.length > 3 && s.length < 7) ? 'true' : 'false';
+  const result = !isNaN(s) && (s.length > 3 && s.length < 7) ? 'true' : 'false';
   return result;
 }
 
