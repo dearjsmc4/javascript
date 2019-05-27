@@ -44,7 +44,6 @@ function generateId() {
 function removeTodo(target) {
   // this.removeChild(e.target.parentNode);
   todos = todos.filter(todo => target.parentNode.id * 1 !== todo.id);
-  // setId();
   render();
 }
 
