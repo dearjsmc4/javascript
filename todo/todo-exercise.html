@@ -7,45 +7,45 @@
     <title>Todo</title>
 </head>
 <body>
-	<input type="text" class="input-todo" placeholder="todo">
-	<button class="add">Add</button>
-	<ul class="todos"></ul>
-	<script>
-		const $inputTodo = document.querySelector('.input-todo');
-		const $add = document.querySelector('.add');
-		const $todos = document.querySelector('.todos');
+  <input type="text" class="input-todo" placeholder="todo">
+  <button class="add">Add</button>
+  <ul class="todos"></ul>
+  <script>
+    const $inputTodo = document.querySelector('.input-todo');
+    const $add = document.querySelector('.add');
+    const $todos = document.querySelector('.todos');
 
-		function addTodo(newTodo) {
-		  $todos.innerHTML += `<li class="todo"><input type="checkbox"> ${newTodo} <button class="remove">Done!</button></li>`;
-		}
+    function addTodo(newTodo) {
+      $todos.innerHTML += `<li class="todo"><input type="checkbox"> ${newTodo} <button class="remove">Done!</button></li>`;
+    }
 
-		function removeTodo(childNode) {
-		  $todos.removeChild(childNode);
-		}
+    function removeTodo(childNode) {
+      $todos.removeChild(childNode);
+    }
 
-		$add.onclick = function () {
-		  addTodo($inputTodo.value);
-		  $inputTodo.value = '';
-		};
+    $add.onclick = function () {
+      addTodo($inputTodo.value);
+      $inputTodo.value = '';
+    };
 
-		$todos.addEventListener('change', function (e) {
-		  let target = e.target;
-		  if (target.classList.contains('checked')) {
-		    target.classList.replace('checked', 'unchecked');
-		    target.parentNode.style.textDecoration = 'none';
-		  }
-		  else if (!target.classList.contains('checked')) {
-		    target.className = 'checked';
-		    target.parentNode.style.textDecoration = 'line-through';
-		  }
-		});
+    $todos.addEventListener('change', function (e) {
+      let target = e.target;
+      if (target.classList.contains('checked')) {
+        target.classList.replace('checked', 'unchecked');
+        target.parentNode.style.textDecoration = 'none';
+      }
+      else if (!target.classList.contains('checked')) {
+        target.className = 'checked';
+        target.parentNode.style.textDecoration = 'line-through';
+      }
+    });
 
-		$todos.addEventListener('click', function (e) {
-		  if (e.target.className === 'remove'){
-		  let target = e.target.parentNode;
-		  if (target.classList.contains('todo')) removeTodo(target);
-		  }
-	  });
+    $todos.addEventListener('click', function (e) {
+      if (e.target.className === 'remove') {
+      let target = e.target.parentNode;
+      if (target.classList.contains('todo')) removeTodo(target);
+      }
+    });
 	</script>
 </body>
 </html>
