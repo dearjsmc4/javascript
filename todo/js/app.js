@@ -42,7 +42,6 @@ function generateId() {
 }
 
 function removeTodo(target) {
-  // this.removeChild(e.target.parentNode);
   todos = todos.filter(todo => target.parentNode.id * 1 !== todo.id);
   render();
 }
@@ -51,18 +50,14 @@ $todos.onchange = function (e) {
   const id = +e.target.parentNode.id;
   todos = todos.map(todo => (todo.id === id ? Object.assign({}, todo, { completed: !todo.completed }) : todo));
   if (e.target.checked) {
-    // target.classList.replace('checked', 'unchecked');
     e.target.setAttribute('checked', 'checked');
-    // e.target.nextElementSibling.style.textDecoration = 'line-through';
   } else {
     e.target.removeAttribute('checked');
-    // e.target.nextElementSibling.style.textDecoration = 'none';
   }
   render();
 };
 
 $todos.onclick = function (e) {
-  // console.log(e.target.parentNode);
   if (e.target.classList.contains('remove-todo')) {
     removeTodo(e.target);
   }
