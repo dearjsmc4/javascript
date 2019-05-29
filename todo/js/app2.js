@@ -9,23 +9,20 @@
   const $todos = document.querySelector('.todos');
   const $inputTodo = document.querySelector('.input-todo');
   const $completeAll = document.querySelector('.complete-all');
-  const $clearCompleted = document.querySelector('.clear-completed');
-
-  function checkActive() {
-    const $activeTodos = document.querySelector('.active-todos');
-    const activeLeft = todos.filter(todo => todo.completed !== true);
-    $activeTodos.innerHTML = activeLeft.length;
-  }
-
-  function checkCompleted() {
-    const $completedTodos = document.querySelector('.completed-todos');
-    const clearLeft = todos.filter(todo => todo.completed === true);
-    $completedTodos.innerHTML = clearLeft.length;
-  }
+  const $clearCompleted = document.querySelector('.clear-completed > .btn');
+  const $nav = document.querySelector('.nav');
+  const $activeTodos = document.querySelector('.active-todos');
+  const $completedTodos = document.querySelector('.completed-todos');
+  let navId = 'all';
 
   function render() {
+    let filterTodos = [];
+    if (navId === 'all') filterTodos = [...todos];
+    else if (navId === 'active') filterTodos = todos.filter(todo => !todo.completed);
+    else filterTodos = todos.filter(todo => todo.completed);
+
     let html = '';
-    todos.forEach(({ id, content, completed }) => {
+    filterTodos.forEach(({ id, content, completed }) => {
       html += `<li id="${id}" class="todo-item">
       <input class="custom-checkbox" type="checkbox" id="ck-${id}" ${completed ? 'checked' : ''}>
       <label for="ck-${id}">${content}</label>
@@ -33,8 +30,8 @@
     </li>`;
     });
     $todos.innerHTML = html;
-    checkActive();
-    checkCompleted();
+    $activeTodos.innerHTML = todos.filter(todo => todo.completed !== true).length;
+    $completedTodos.innerHTML = todos.filter(todo => todo.completed === true).length;
   }
 
   function generateId() {
@@ -82,6 +79,13 @@
 
   $clearCompleted.onclick = function () {
     todos = todos.filter(todo => todo.completed !== true);
+    render();
+  };
+
+  $nav.onclick = function (e) {
+    [...$nav.children].forEach(item => item.classList.remove('active'));
+    e.target.className = 'active';
+    navId = e.target.id;
     render();
   };
 
