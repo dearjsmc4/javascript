@@ -30,6 +30,7 @@
       });
     };
 
+    // GET
     promiseAjax('GET', 'http://localhost:3000/todos')
       .then(render)
       .catch(console.log);
@@ -37,23 +38,28 @@
     //   .then(render)
     //   .catch(console.log);
 
+    // POST
     // promiseAjax('POST', 'http://localhost:3000/todos', {
     //   id: 4, content: 'Angular', completed: false
     // })
     //   .then(render)
     //   .catch(console.log);
 
+    // PUT
     // promiseAjax('PUT', 'http://localhost:3000/todos/3', {
     //   id: 3, content: 'Vue.js', completed: false
     // })
     //   .then(render)
     //   .catch(console.log);
+
+    // PATCH
     // promiseAjax('PATCH', 'http://localhost:3000/todos/3', {
     //   completed: true
     // })
     //   .then(render)
     //   .catch(console.log);
     
+    // DELETE
     // promiseAjax('DELETE', 'http://localhost:3000/todos/4')
     //   .then(render)
     //   .catch(console.log);
