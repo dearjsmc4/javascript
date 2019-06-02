@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fetch</title>
+</head>
+<body>
+  <pre class="result"></pre>
+  <script>
+    const $result = document.querySelector('.result');
+    const render = (content) => { $result.innerHTML = JSON.stringify(content, null, 2) };
+    
+    fetch('http://localhost:3000/todos')
+      .then(res => res.json())
+      .then(render)
+      .catch(console.log);
+    // fetch('http://localhost:3000/todos/1')
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch(console.log);
+
+    // fetch('http://localhost:3000/todos', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ id: 4, content: 'Angular', completed: false })
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch(console.log);
+
+    // fetch('http://localhost:3000/todos/3', {
+    //   method: 'PUT',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ id: 3, content: 'CSS', completed: false })
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch(console.log);
+
+    // fetch('http://localhost:3000/todos/4', {
+    //   method: 'DELETE'
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch(console.log);
+  </script>
+</body>
+</html>
