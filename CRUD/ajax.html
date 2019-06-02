@@ -15,7 +15,7 @@
     const ajax = (method, url, payload) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
-      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(payload));
 
       xhr.onreadystatechange = function () {
