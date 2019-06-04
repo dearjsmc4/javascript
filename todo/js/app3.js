@@ -11,7 +11,6 @@
   let navId = 'all';
 
   function render(resTodo) {
-    console.log(resTodo);
     todos = resTodo;
     let filterTodos = [];
     if (navId === 'all') filterTodos = [...todos];
@@ -53,11 +52,6 @@
 
   $todos.onchange = function (e) {
     const id = +e.target.parentNode.id;
-    if (e.target.checked) {
-      e.target.setAttribute('checked', 'checked');
-    } else {
-      e.target.removeAttribute('checked');
-    }
     fetch(`http://localhost:9000/todos/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
