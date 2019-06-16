@@ -32,7 +32,7 @@ DOM API를 사용하여 DOM을 직접 조작하면 뷰와 모델 간의 관계�
 
 
 ### 인터폴레이션  
-`{{ expression }}`
+`{{ expression }}`  
 표현식을 두 개의 중괄호로 열고 닫은 형식. 표현식의 평가 결과를 문자열로 변환하여 템플릿에 바인딩한다. 그러나 템플릿 내부의 표현식에는 컴포넌트 클래스의 프로퍼티를 변경할 수 있는 연산은 금지된다.  
 
 ### 프로퍼티 바인딩 & 어트리뷰트 바인딩  
@@ -49,12 +49,12 @@ HTML 요소의 class 어트리뷰트에 클래스를 추가 / 삭제 할 수 있
 
 - 단항 클래스 바인딩  
   좌변에는 class 어트리뷰트에 반영할 클래스 이름을 지정하고, 우변에는 참이나 거짓으로 평가되는 표현식을 바인딩한다.  
-  `<div [class.active]="isActive">...</div>`
+  `<div [class.active]="isActive">...</div>`  
   isActive 의 값이 참이면 클래스 active 를 추가하고, 거짓이면 삭제한다.  
 
 - 다항 클래스 바인딩  
   좌변에는 class 를 지정하고, 우변에는 class 어트리뷰트에 반영할 클래스의 리스트를 바인딩 한다.  
-  `<div [class]="my-classes">...</div>`
+  `<div [class]="my-classes">...</div>`  
 
 이미 클래스가 지정되어 있을 때, 단항 클래스 바인딩은 class 어트리뷰트를 병합하여 새로운 class 어트리뷰트를 작성하지만, 다항 클래스 바인딩은 기존의 class 어트리뷰트를 삭제하고 새로운 class 어트리뷰트를 작성한다. 클래스 바인딩은 기존 class 어트리뷰트보다 우선된다.  
 
@@ -65,11 +65,11 @@ HTML 요소의 style 어트리뷰트에 스타일을 지정한다.
 
 ### 이벤트 바인딩  
 뷰의 상태 변화에 의해 이벤트가 발생하면 이벤트 핸들러를 호출한다.  
-`<element (event)="statement">...</element>`
+`<element (event)="statement">...</element>`  
 
 ### 양방향 데이터 바인딩  
 뷰와 컴포넌트 클래스의 상태변화를 상호 반영한다.  
-`<element [(ngModel)]="property">...</element>`
+`<element [(ngModel)]="property">...</element>`  
 
 
 ## Built-in Directive  
@@ -84,15 +84,15 @@ HTML 요소 또는 어트리뷰트의 형태로 사용하여 디렉티브가 사
 - ngClass  
   여러 개의 CSS 클래스를 추가 또는 삭제한다. ngClass 디렉티브는 바인딩된 문자열/배열/객체를 HTML요소의 class 어트리뷰트에 반영한다. 이미 클래스가 지정되어 있을 때에는 class 어트리뷰트를 병합하여 새로운 class 어트리뷰트를 작성한다.  
   - 공백 문자로 구분된 문자열  
-  `<div [ngClass]="'text-bold color-blue'">...</div>`
+  `<div [ngClass]="'text-bold color-blue'">...</div>`  
   - 요소로 구성된 배열  
   `<div [ngClass]="['text-bold', 'color-blue']">...</div>`  
   - 프로퍼티와 불린 타입 값을 갖는 객체  
   프로퍼티 값이 true 인 프로퍼티만 class 어트리뷰트에 반영된다.  
-  `<div [ngClass]="{ 'text-bold': true, 'color-blue': false }">...</div>`
+  `<div [ngClass]="{ 'text-bold': true, 'color-blue': false }">...</div>`  
 
 
-- ngStyle
+- ngStyle  
 여러 개의 인라인 스타일을 추가 또는 삭제한다. 바인딩된 객체를 style 어트리뷰트에 반영한다. 이미 스타일이 지정되어 있을 때에는 style 어트리뷰트를 병합하여 새로운 style 어트리뷰트를 작성한다.  
 `<div [ngStyle]="{ color: 'red', 'width.px': 100 }"></div>`  
 
