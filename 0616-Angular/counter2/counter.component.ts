@@ -50,4 +50,3 @@ export class CounterComponent {
 
 
 
-// $event = 이벤트 객체
