@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-counter',
   template: `
   <div class="container">
-  <app-increase (decrease)="decrease()"></app-increase>
+  <app-decrease (decrease)="decrease()"></app-decrease>
   <div class="counter"> {{number}} </div>
-  <app-decrease (increase)="increase()"></app-decrease>
+  <app-increase (increase)="increase()"></app-increase>
   </div>
   `,
   styles: [`
