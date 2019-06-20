@@ -275,9 +275,9 @@ export class TodoComponent {
     });
   }
   get Completed() {
-    return this.cntCompleted = this.todos.filter(todo => todo.completed === true).length;
+    return this.cntCompleted = this.todos.filter(todo => todo.completed).length;
   }
   get Active() {
-    return this.cntActive = this.todos.filter(todo => todo.completed === false).length;
+    return this.cntActive = this.todos.filter(todo => !todo.completed).length;
   }
 }
