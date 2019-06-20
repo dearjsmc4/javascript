@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Todo {
-  id: number,
-  content: string,
-  completed: boolean
-}
+import { Todo } from './todo-interface'
 
 @Component({
   selector: 'app-todo',
