@@ -239,8 +239,6 @@ export class TodoComponent {
     { id: 2, content: 'CSS', completed: true },
     { id: 3, content: 'Javascript', completed: false }
   ]
-  cntActive: number;
-  cntCompleted: number;
   content = '';
   navId = 'all';
 
@@ -275,9 +273,9 @@ export class TodoComponent {
     });
   }
   get Completed() {
-    return this.cntCompleted = this.todos.filter(todo => todo.completed).length;
+    return this.todos.filter(todo => todo.completed).length;
   }
   get Active() {
-    return this.cntActive = this.todos.filter(todo => !todo.completed).length;
+    return this.todos.filter(todo => !todo.completed).length;
   }
 }
