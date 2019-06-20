@@ -5,7 +5,7 @@
     { id: 2, content: 'CSS', completed: true },
     { id: 3, content: 'Javascript', completed: false }
   ];
-
+  let navId = 'all';
   const $todos = document.querySelector('.todos');
   const $inputTodo = document.querySelector('.input-todo');
   const $completeAll = document.querySelector('.complete-all');
@@ -13,7 +13,6 @@
   const $nav = document.querySelector('.nav');
   const $activeTodos = document.querySelector('.active-todos');
   const $completedTodos = document.querySelector('.completed-todos');
-  let navId = 'all';
 
   function render() {
     let filterTodos = [];

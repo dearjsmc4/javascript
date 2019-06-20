@@ -1,16 +1,21 @@
+(function() {
 interface Todo {
   id: number,
   content: string,
   completed: boolean
 }
 
-let todos: Todo[] = [
+const todos: Todo[] = [
   { id: 1, content: 'HTML', completed: true },
   { id: 2, content: 'CSS', completed: true },
   { id: 3, content: 'Javascript', completed: false }
 ];
-const $todos: HTMLUListElement = document.querySelector('.todos');
-const $inputTodo: HTMLInputElement = document.querySelector('.inputTodo');
+
+class todoApp {
+  constructor() {
+    this.$todos: HTMLUListElement = document.querySelector('.todos');
+    this.$inputTodo: HTMLInputElement = document.querySelector('.inputTodo');
+  }
 
 function render() {
   let html = '';
@@ -62,3 +67,7 @@ $todos.onchange = function(e: MouseEvent) {
 }
 
 render();
+}
+new todoApp();
+
+}());
