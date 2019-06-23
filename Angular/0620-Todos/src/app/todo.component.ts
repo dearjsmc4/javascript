@@ -16,6 +16,7 @@ import { Todo } from './todo-interface'
     <li id="all" class="all" [class.active]="navId === 'all'">All</li>
     <li id="active" [class.active]="navId === 'active'">Active</li>
     <li id="completed" [class.active]="navId === 'completed'">Completed</li>
+    <-- ngFor로 돌려도 된다. navItem 자료구조 만들어서... 이렇게하면 아이디가 필요없다 -->
   </ul>
 
   <ul class="todos">

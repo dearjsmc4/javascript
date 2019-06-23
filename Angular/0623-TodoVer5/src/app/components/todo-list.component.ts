@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from './todo-interface';
-import { ViewEncapsulation } from '@angular/compiler/src/core';
-import { navItem } from './nav-item-type';
+import { Todo } from '../todo-interface';
+import { navItem } from '../nav-item-type';
 
 @Component({
   selector: 'app-todo-list',
