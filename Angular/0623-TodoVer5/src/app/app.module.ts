@@ -8,7 +8,8 @@ import { TodoFormComponent } from './components/todo-form.component';
 import { TodoNavComponent } from './components/todo-nav.component';
 import { TodoListComponent } from './components/todo-list.component';
 import { TodoFooterComponent } from './components/todo-footer.component';
-import { TodofilterPipe } from './todofilter.pipe';
+
+import { TodofilterPipe } from './pipes/todofilter.pipe';
 
 @NgModule({
   declarations: [

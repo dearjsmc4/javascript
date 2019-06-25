@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Todo } from '../todo-interface';
-import { navItem } from '../nav-item-type';
+import { Todo } from '../types/todo-interface';
+import { navItem } from '../types/nav-item-type';
 
 @Component({
   selector: 'app-todo-container',

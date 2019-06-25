@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../todo-interface';
-import { navItem } from '../nav-item-type';
+import { Todo } from '../types/todo-interface';
+import { navItem } from '../types/nav-item-type';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,9 +9,9 @@ import { navItem } from '../nav-item-type';
     <li id="{{ todo.id }}" class="todo-item" *ngFor="let todo of todos | todofilter: navId">
       <input class="custom-checkbox" type="checkbox" id="ck-{{ todo.id }}" 
       [checked]="todo.completed"
-      (change)="this.check.emit(todo.id);">
+      (change)="check.emit(todo.id);">
       <label for="ck-{{ todo.id }}">{{ todo.content }}</label>
-      <i class="remove-todo far fa-times-circle" (click)="this.remove.emit(todo.id);"></i>
+      <i class="remove-todo far fa-times-circle" (click)="remove.emit(todo.id);"></i>
     </li>
   </ul>
   `,

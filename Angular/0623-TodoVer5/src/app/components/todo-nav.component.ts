@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { navItem } from '../nav-item-type';
+import { navItem } from '../types/nav-item-type';
 
 @Component({
   selector: 'app-todo-nav',
@@ -7,7 +7,7 @@ import { navItem } from '../nav-item-type';
     <ul class="nav">
       <li class="all" *ngFor="let navItem of navItems"
       [class.active]="navId === navItem"
-      (click)="this.navState.emit(navItem)">{{ navItem }}</li>
+      (click)="navState.emit(navItem)">{{ navItem }}</li>
     </ul>
   `,
   styles: [`

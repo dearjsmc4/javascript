@@ -6,11 +6,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   <div class="footer">
     <div class="complete-all">
       <input class="custom-checkbox" type="checkbox" id="ck-complete-all" 
-      (change)="this.checkAll.emit($event.target.checked)">
+      (change)="checkAll.emit($event.target.checked)">
       <label for="ck-complete-all">Mark all as complete</label>
     </div>
     <div class="clear-completed">
-      <button class="btn" (click)="this.clearChecked.emit();">Clear completed
+      <button class="btn" (click)="clearChecked.emit();">Clear completed
       (<span class="completed-todos">{{ Completed }}</span>)
       </button>
       <strong class="active-todos"> {{ Active }}</strong> items left
