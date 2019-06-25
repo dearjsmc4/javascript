@@ -15,7 +15,7 @@
 - `ngDoCheck`  
   ngOnInit 이후, 컴포넌트 또는 디렉티브의 모든 상태 변화가 발생할 때(변화 감지 로직이 실행될 때)마다 호출된다. Angular의 변화 감지에 의해 감지되지 않거나 감지할 수 없는 변경 사항을 수동으로 더티 체크(dirty check)하기 위해 사용한다. 하지만 모든 상태 변화가 발생할 때마다 호출되기 때문에 성능에 악영향을 줄 수 있다. 또한 ngOnChange와 달리 **모든 상태 변경**에 의해 호출된다.  
 
-- **ngOnChanges & ngDoCheck** 
+- **ngOnChanges & ngDoCheck**  
   ngOnChanges는 입력 프로퍼티의 초기화, 입력 프로퍼티의 참조 변경 시에 호출된다.  
   반면 ngDoCheck는 *모든* 상태 변화 시점, 즉 변화 감지(Change detection) 로직이 실행될 때 호출된다.  
 
