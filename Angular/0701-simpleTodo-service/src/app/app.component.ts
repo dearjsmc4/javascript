@@ -1,7 +1,6 @@
 import { Todo } from './todo';
 import { Component, Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { TodoService } from './todo.service';
 
 @Component({
@@ -22,8 +21,7 @@ import { TodoService } from './todo.service';
       </li>
     </ul>
     <pre>{{ todos | json }}</pre>
-  `,
-  styles: []
+  `
 })
 
 @Injectable()
@@ -32,7 +30,7 @@ export class AppComponent implements OnInit{
   content = '';
   clickId: number;
 
-  constructor(private http: HttpClient, private todoService: TodoService) {
+  constructor(private todoService: TodoService) {
   }
   ngOnInit() {
     this.todoService.getAll()

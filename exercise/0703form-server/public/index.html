@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Signup</title>
+</head>
+<style>
+</style>
+<body>
+  <form action="/signin" method="POST">
+    <div>
+      <input type="email" name="email" placeholder="Email" class="email" required>
+      <span class="emailReg"></span>
+    </div>
+    <div>
+      <input type="password" class="password" name="password" placeholder="Password">
+      <span class="pwReg"></span>
+    </div>
+    <button type="submit" class="submit" disabled>Sign In</button>
+  </form>
+  <script>
+    const $email = document.querySelector('.email');
+    const $password = document.querySelector('.password');
+    const $submit = document.querySelector('.submit');
+    const $emailReg = document.querySelector('.emailReg');
+    const $pwReg = document.querySelector('.pwReg');
+    let emailPass = false;
+    let pwPass = false;
+
+    const checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    const checkPw = /^[a-zA-Z0-9]{4,10}$/;
+
+    $email.onblur = () => {
+      if (checkEmail.test($email.value)) {
+        $emailReg.innerHTML = '';
+        emailPass = true;
+      } else {
+        $emailReg.innerHTML = '올바른 이메일 형식에 맞추어 입력해주세요. ex) fastcampus@fastcampus.com';
+      }
+    };
+    $password.onblur = () => {
+      if (checkPw.test($password.value)) {
+        $pwReg.innerHTML = '';
+        pwPass = true;
+      } else {
+        $pwReg.innerHTML = '비밀번호는 4~10자리의 영문자 또는 숫자여야 합니다.';
+      }
+      if (emailPass && pwPass) {
+        $submit.removeAttribute('disabled');
+      }
+    };
+  </script>
+</body>
+</html>

@@ -114,33 +114,33 @@ export class TodoContainerComponent implements OnInit {
 
   getTodo() {
     this.todoService.getAll()
-    .subscribe(todos => this.todos = todos);
+    .subscribe((todos: Todo[]) => this.todos = todos);
   }
   addTodo(content: string) {
     if (!content.trim()) return;
     const payload = { id: this.generateId(), content, completed: false };
     this.todoService.create(payload)
-      .subscribe(todos => this.todos = todos);
+      .subscribe((todos: Todo[]) => this.todos = todos);
   }
   generateId() {
     return this.todos.length ? Math.max(...this.todos.map(todo => todo.id)) + 1 : 1;
   }
   removeTodo(id: number) {
     this.todoService.delete(id)
-      .subscribe(todos => this.todos = todos);
+      .subscribe((todos: Todo[]) => this.todos = todos);
   }
   checkTodo(id: number) {
     const completed = !this.todos.find(todo => todo.id === id).completed;
     this.todoService.toggle(id, completed)
-      .subscribe(todos => this.todos = todos);
+      .subscribe((todos: Todo[]) => this.todos = todos);
   }
   completeAll(completed: boolean) {
     this.todoService.toggleAll(completed)
-      .subscribe(todos => this.todos = todos);
+      .subscribe((todos: Todo[]) => this.todos = todos);
   }
   clearCompleted() {
     this.todoService.removeCompleted()
-      .subscribe(todos => this.todos = todos);
+      .subscribe((todos: Todo[]) => this.todos = todos);
   }
   get Completed() {
     return this.todos.filter(todo => todo.completed).length;

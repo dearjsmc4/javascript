@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Popup</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+    body {
+      font-family: 'Open Sans';
+      font-weight: 300;
+      background-color: #D6E1E5;
+      position: relative;
+    }
+
+    h1 {
+      color: #DB5B33;
+      font-weight: 300;
+      text-align: center;
+    }
+    .overlay{
+      display: none;
+      position: fixed;
+      width:100%;
+      height: 100%;
+      top:0;
+      left:0;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .popup{
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      width: 60vw;
+      padding: 20px;
+      z-index: 100;
+      box-shadow: 0px 15px 20px 0px grey;
+    }
+    .btn-close{
+      position: absolute;
+      top:20px;
+      right:20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Popup</h1>
+
+  <div class="popup">
+    <h1>JavaScript Popup</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    <button class="btn-close">X</button>
+    <input type="text" class="input-form">
+    <button class="btn-ok">OK</button>
+    <button class="btn-cancel">Cancel</button>
+  </div>
+  <div class="overlay"></div>
+
+  <button class="toggle-popup">show popup</button>
+
+  <p class="popup-message"></p>
+  <script>
+    const $popup = document.querySelector('.popup');
+    const $overlay = document.querySelector('.overlay');
+    const $togglePopup = document.querySelector('.toggle-popup');
+    const $btnOk = document.querySelector('.btn-ok');
+    const $inputForm = document.querySelector('.input-form');
+    const $popupMessage = document.querySelector('.popup-message');
+
+    $togglePopup.onclick = () => {
+      $popup.style.display = 'block';
+      $overlay.style.display = 'block';
+    };
+
+    window.onclick = (e) => {
+      if (e.target.className !== 'btn-cancel'
+       && e.target.className !== 'btn-close'
+       && e.target.className !== 'overlay') return;
+      $popup.style.display = 'none';
+      $overlay.style.display = 'none';
+    };
+
+    $btnOk.onclick = () => {
+      const inputValue = $inputForm.value;
+      $inputForm.value = '';
+      if (!inputValue.trim() || !inputValue) return;
+      $popupMessage.innerHTML = `form popup : ${inputValue}`;
+    };
+  </script>
+</body>
+</html>
